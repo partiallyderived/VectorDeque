@@ -40,7 +40,7 @@ class VectorDeque {
 
         static MemberType& dereferenceAt(VectorDequeType* const vectorDequePtr, const ptrdiff_t position) throw() {
             if (IS_REVERSE) {
-                return (*vectorDequePtr)[vectorDequePtr->size() - position];
+                return (*vectorDequePtr)[vectorDequePtr->size() - position - 1];
             }
             return (*vectorDequePtr)[position];
         }
@@ -64,7 +64,8 @@ class VectorDeque {
          * Runtime: `O(1)`
          * @param that Iterator to copy the state from.
          */
-        IteratorBase(const Iterator& that) throw(): _position(that._position), _vectorDequePtr(that._vectorDequePtr) {}
+        IteratorBase(const Iterator& that) throw(): _position(that._position), 
+        _vectorDequePtr(that._vectorDequePtr) {}
 
         /**
          * Construct an iterator by copying the state of another iterator.
@@ -102,10 +103,11 @@ class VectorDeque {
          * Convert `*this` to a constant iterator.
          * Runtime: `O(1)`
          * @return An immutable copy of `*this`.
-         */
+         *
         operator ConstIterator() const throw() {
             return ConstIterator(*this);
         }
+        */
 
         /**
          * Check for equality with another iterator.
@@ -225,7 +227,6 @@ class VectorDeque {
          */
         IteratorBase& operator +=(const ptrdiff_t amount) throw() {
             _position += amount;
-            // By assumption, `*this` is of type `IteratorBase`.
             return *this;
         }
 
@@ -247,7 +248,7 @@ class VectorDeque {
          * @param amount Amount to advance by.
          * @return The resulting iterator.
          */
-        IteratorBase operator +(const ptrdiff_t amount) {
+        IteratorBase operator +(const ptrdiff_t amount) const throw() {
             return IteratorBase(*this) += amount;
         }
         
@@ -258,10 +259,9 @@ class VectorDeque {
          * @param it Iterator to compute advancement for.
          * @return The resulting iterator.
          */
-        template <class _DataType, class _VectorDequeType, class _MemberType, bool _IS_REVERSE>
-        friend typename VectorDeque<_DataType>::template IteratorBase<_VectorDequeType, _MemberType, _IS_REVERSE>
-                operator +(const ptrdiff_t amount, const IteratorBase<_VectorDequeType, _MemberType, _IS_REVERSE>) 
-                throw();
+        friend IteratorBase operator +(const ptrdiff_t amount, const IteratorBase& it) throw() {
+            return it + amount;            
+        }
 
         /**
          * Compute the iterator resulting from regressing the position of `it` by `amount`.
@@ -270,7 +270,7 @@ class VectorDeque {
          * @param amount Amount to advance by.
          * @return The resulting iterator.
          */
-        IteratorBase operator -(const ptrdiff_t amount) throw() {
+        IteratorBase operator -(const ptrdiff_t amount) const throw() {
             return IteratorBase(*this) -= amount;
         }
 
@@ -888,7 +888,7 @@ class VectorDeque {
      * @throws std::invalid_argument If `it` is not iterating over `*this`.
      */
     void insert(const DataType& element, const ConstIterator& it) {
-        _checkIter(it);
+        _checkIterator(it);
         insert(element, it._position);
     }
 
@@ -902,7 +902,7 @@ class VectorDeque {
      * @throws std::invalid_argument If `it` is not iterating over `*this`.
      */
     void insert(const DataType& element, const ConstReverseIterator& it) {
-        _checkIter(it);
+        _checkIterator(it);
         insert(element, _size - it._position);
     }
 
@@ -1018,7 +1018,7 @@ class VectorDeque {
      * Runtime: `O(1)`
      * @return Reverse iterator pointing to the first element of `*this`.
      */
-    Iterator rbegin() throw() {
+    ReverseIterator rbegin() throw() {
         return ReverseIterator(this);
     }
 
@@ -1057,7 +1057,7 @@ class VectorDeque {
      * @throws std::invalid_argument If `it` is not iterating over `*this`.
      */
     DataType removeAt(const ConstIterator& it) {
-    _checkIter(it);
+    _checkIterator(it);
     removeAt(it._position);
     }
 
@@ -1071,7 +1071,7 @@ class VectorDeque {
      * @throws std::invalid_argument If `it` is not iterating over `*this`.
      */
     DataType removeAt(const ConstReverseIterator& it) {
-        _checkIter(it);
+        _checkIterator(it);
         removeAt(_size - it._position);
     }
 
@@ -1184,8 +1184,6 @@ const size_t VectorDeque<DataType>::DEFAULT_INITIAL_CAPACITY = 11;
 // Leftover friend function.
 
 template <class DataType, class VectorDequeType, class MemberType, bool IS_REVERSE>
-typename VectorDeque<DataType>::template IteratorBase<VectorDequeType, MemberType, IS_REVERSE> 
-        operator +(const ptrdiff_t amount, const typename VectorDeque<DataType>::template 
-        IteratorBase<VectorDequeType, MemberType, IS_REVERSE>& it) throw() {
-    return it + amount;
-}
+typename VectorDeque<DataType>::template IteratorBase<VectorDequeType, MemberType, IS_REVERSE> operator +
+    (const ptrdiff_t amount, const typename VectorDeque<DataType>::template 
+    IteratorBase<VectorDequeType, MemberType, IS_REVERSE>& it) throw();

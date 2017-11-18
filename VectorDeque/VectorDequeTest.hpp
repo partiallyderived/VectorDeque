@@ -56,6 +56,61 @@ class VectorDequeTest: public CppUnit::TestFixture {
         CPPUNIT_TEST_SUITE_END();
     
     public:
+        template<class IteratorType1, class IteratorType2>
+        void helpTestOneOffIteratorCompare(const IteratorType1& lesserIterator, const IteratorType2& greaterIterator) {
+            CPPUNIT_ASSERT(greaterIterator - lesserIterator == 1);
+
+            // The following should be true.
+            CPPUNIT_ASSERT(greaterIterator != lesserIterator);
+            CPPUNIT_ASSERT(greaterIterator > lesserIterator);
+            CPPUNIT_ASSERT(greaterIterator >= lesserIterator);
+            CPPUNIT_ASSERT(lesserIterator < greaterIterator);
+            CPPUNIT_ASSERT(lesserIterator <= greaterIterator);
+            
+            // The following should not be true (before negation).
+            CPPUNIT_ASSERT(!(greaterIterator == lesserIterator));
+            CPPUNIT_ASSERT(!(greaterIterator < lesserIterator));
+            CPPUNIT_ASSERT(!(greaterIterator <= lesserIterator));
+            CPPUNIT_ASSERT(!(lesserIterator > greaterIterator));
+            CPPUNIT_ASSERT(!(lesserIterator >= greaterIterator));
+        }
+        
+        template<class IteratorType1, class IteratorType2>
+        void helpTestEqualIteratorCompare(const IteratorType1& iterator1, const IteratorType2& iterator2) {
+            CPPUNIT_ASSERT(iterator1 - iterator2 == 0);
+                
+            // The following should be true.
+            CPPUNIT_ASSERT(iterator1 == iterator2);
+            CPPUNIT_ASSERT(iterator1 <= iterator2);
+            CPPUNIT_ASSERT(iterator1 >= iterator2);
+            CPPUNIT_ASSERT(iterator2 >= iterator1);
+            CPPUNIT_ASSERT(iterator2 <= iterator1);
+            
+            // The following should not be true (before negation).
+            CPPUNIT_ASSERT(!(iterator1 != iterator2));
+            CPPUNIT_ASSERT(!(iterator1 < iterator2));
+            CPPUNIT_ASSERT(!(iterator1 > iterator2));
+            CPPUNIT_ASSERT(!(iterator2 > iterator1));
+            CPPUNIT_ASSERT(!(iterator1 < iterator2));
+        }
+        
+        template<class IteratorType>
+        void helpTestIteratorArithmetic(IteratorType& iterator, int i) {
+            CPPUNIT_ASSERT(*iterator == i);
+            CPPUNIT_ASSERT(iterator[0] == i);
+            CPPUNIT_ASSERT(iterator[2] == i + 2);
+            CPPUNIT_ASSERT((*++iterator) == i + 1);
+            CPPUNIT_ASSERT((*--iterator) == i);
+            CPPUNIT_ASSERT(*(iterator++) == i);
+            CPPUNIT_ASSERT(*(iterator--) == i + 1);
+            CPPUNIT_ASSERT(*(iterator + 2) == i + 2);
+            CPPUNIT_ASSERT(*(2 + iterator) == i + 2);
+            CPPUNIT_ASSERT(*(iterator += 2) == i + 2);
+            CPPUNIT_ASSERT(iterator[-2] == i);
+            CPPUNIT_ASSERT(*(iterator - 2) == i);
+            CPPUNIT_ASSERT(*(iterator -= 2) == i);
+        }
+    
         void setUp() {
             vectorDequePtr = new VectorDeque<int>();
             vectorDeque2Ptr = new VectorDeque<int>();
@@ -133,6 +188,18 @@ class VectorDequeTest: public CppUnit::TestFixture {
             CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
             vectorDequePtr->addAllFirst(arrayOf0To99, 100);
             CPPUNIT_ASSERT(vectorDequePtr->size() == 100);
+            CPPUNIT_ASSERT(*vectorDequePtr == *vectorDequeOf99To0Ptr);
+            
+            vectorDequePtr->clear();
+            vectorDequePtr->addAllFirst(emptyVectorPtr->begin(), emptyVectorPtr->end());
+            
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            vectorDequePtr->addAllFirst(vectorOf0To99Ptr->begin(), vectorOf0To99Ptr->end());
+            
+            CPPUNIT_ASSERT(*vectorDequePtr == *vectorDequeOf99To0Ptr);
+            vectorDequePtr->clear();
+            vectorDequePtr->addAllFirst(vectorDequeOf0To99Ptr->begin(), vectorDequeOf0To99Ptr->end());
+
             CPPUNIT_ASSERT(*vectorDequePtr == *vectorDequeOf99To0Ptr);
         }
 
@@ -272,31 +339,105 @@ class VectorDequeTest: public CppUnit::TestFixture {
         }
 
         void testInsertIterator() {
+            VectorDeque<int>::Iterator iterator = vectorDequePtr->begin();
+            vectorDequePtr->insert(3, iterator);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 3);
             
+            vectorDequePtr->insert(2, iterator);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 2);
+            CPPUNIT_ASSERT((*vectorDequePtr)[1] == 3);
+            
+            ++iterator;
+            vectorDequePtr->insert(5, iterator);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 2);
+            CPPUNIT_ASSERT((*vectorDequePtr)[1] == 5);
+            CPPUNIT_ASSERT((*vectorDequePtr)[2] == 3);
+            
+            iterator += 2;
+            CPPUNIT_ASSERT(iterator == vectorDequePtr->end());
+            vectorDequePtr->insert(7, iterator);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 2);
+            CPPUNIT_ASSERT((*vectorDequePtr)[1] == 5);
+            CPPUNIT_ASSERT((*vectorDequePtr)[2] == 3);
+            CPPUNIT_ASSERT((*vectorDequePtr)[3] == 7);
         }
 
         void testIsEmpty() {
-
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            CPPUNIT_ASSERT(!vectorDequeOf0To99Ptr->isEmpty());
+            
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(!vectorDequePtr->isEmpty());
         }
 
         void testIterators() {
-
+            VectorDeque<int>::Iterator iterator = vectorDequeOf0To99Ptr->begin();
+            VectorDeque<int>::ConstIterator constIterator = vectorDequeOf0To99Ptr->cbegin();
+            VectorDeque<int>::ReverseIterator reverseIterator = vectorDequeOf99To0Ptr->rbegin();
+            VectorDeque<int>::ConstReverseIterator constReverseIterator = vectorDequeOf99To0Ptr->crbegin();
+            // For simplicity, omit the last two ints to avoid going OOB.
+            for (int i = 0; i < 98; ++i) {
+                helpTestIteratorArithmetic(iterator, i);
+                helpTestIteratorArithmetic(constIterator, i);
+                helpTestIteratorArithmetic(reverseIterator, i);
+                helpTestIteratorArithmetic(constReverseIterator, i);
+                
+                ++iterator;
+                helpTestOneOffIteratorCompare(constIterator, iterator);
+                
+                ++constIterator;
+                helpTestEqualIteratorCompare(iterator, constIterator);
+                
+                ++reverseIterator;
+                helpTestOneOffIteratorCompare(constReverseIterator, reverseIterator);
+                
+                ++constReverseIterator;
+                helpTestEqualIteratorCompare(reverseIterator, constReverseIterator);
+            }
+            VectorDeque<int>::ConstIterator constFromNotConstIterator = VectorDeque<int>::ConstIterator(iterator);
+            VectorDeque<std::string> vectorDequeOfStrings;
+            vectorDequeOfStrings.add("hi");
+            VectorDeque<std::string>::Iterator stringIterator = vectorDequeOfStrings.begin();
+            CPPUNIT_ASSERT(stringIterator->length() == 2);
         }
 
         void testPeek() {
-
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->peek(), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(vectorDequePtr->peek() == 3);
+            vectorDequePtr->add(4);
+            CPPUNIT_ASSERT(vectorDequePtr->peek() == 3);
+            vectorDequePtr->addFirst(5);
+            CPPUNIT_ASSERT(vectorDequePtr->peek() == 5);
         }
 
         void testPeekLast() {
-            
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->peekLast(), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(vectorDequePtr->peekLast() == 3);
+            vectorDequePtr->add(4);
+            CPPUNIT_ASSERT(vectorDequePtr->peekLast() == 4);
+            vectorDequePtr->addFirst(5);
+            CPPUNIT_ASSERT(vectorDequePtr->peekLast() == 4);
         }
 
         void testPop() {
-
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->pop(), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(vectorDequePtr->pop() == 3);
+            vectorDequePtr->add(5);
+            vectorDequePtr->add(6);
+            CPPUNIT_ASSERT(vectorDequePtr->pop() == 5);
+            vectorDequePtr->addFirst(2);
+            CPPUNIT_ASSERT(vectorDequePtr->pop() == 2);
+            
+            for (int i = 0; i < 100; ++i) {
+                CPPUNIT_ASSERT(vectorDequeOf0To99Ptr->pop() == i);
+            }
         }
 
         void testPopAll() {
-
+            
         }
 
         void testPopAllLast() {
@@ -425,6 +566,4 @@ class VectorDequeTest: public CppUnit::TestFixture {
             delete[] arrayOf0To99;
             delete[] destArray;
         }
-
-
 };
