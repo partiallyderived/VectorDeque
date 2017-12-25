@@ -29,6 +29,7 @@ class VectorDequeTest: public CppUnit::TestFixture {
         CPPUNIT_TEST(testCopyToArray);
         CPPUNIT_TEST(testEquality);
         CPPUNIT_TEST(testFind);
+        CPPUNIT_TEST(testFromBack);
         CPPUNIT_TEST(testInequality);
         CPPUNIT_TEST(testInsert);
         CPPUNIT_TEST(testInsertIterator);
@@ -44,7 +45,6 @@ class VectorDequeTest: public CppUnit::TestFixture {
         CPPUNIT_TEST(testPopSomeLast);
         CPPUNIT_TEST(testRemoveAt);
         CPPUNIT_TEST(testRemoveAtIterator);
-        CPPUNIT_TEST(testReverseAccess);
         CPPUNIT_TEST(testReverseCopyToArray);
         CPPUNIT_TEST(testReverseSliceToArray);
         CPPUNIT_TEST(testSize);
@@ -276,6 +276,10 @@ class VectorDequeTest: public CppUnit::TestFixture {
             vectorDequePtr->add(5);
             vectorDequePtr->copyToArray(destArray);
             CPPUNIT_ASSERT(destArray[0] == 5);
+            vectorDequePtr->add(4);
+            vectorDequePtr->copyToArray(destArray);
+            CPPUNIT_ASSERT(destArray[0] == 5);
+            CPPUNIT_ASSERT(destArray[1] == 4);
             vectorDequeOf0To99Ptr->copyToArray(destArray);
             for (int i = 0; i < 100; ++i) {
                 CPPUNIT_ASSERT(destArray[i] == i);
@@ -306,6 +310,22 @@ class VectorDequeTest: public CppUnit::TestFixture {
                 CPPUNIT_ASSERT(vectorDequePtr->find(i) == i);
             }
             CPPUNIT_ASSERT(vectorDequePtr->find(100) == -1);
+        }
+
+        void testFromBack() {
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->fromBack(0), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(vectorDequePtr->fromBack(0) == 3);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->fromBack(1), std::length_error);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            CPPUNIT_ASSERT(vectorDequePtr->fromBack(0) == 5);
+            CPPUNIT_ASSERT(vectorDequePtr->fromBack(1) == 4);
+            CPPUNIT_ASSERT(vectorDequePtr->fromBack(2) == 3);
+
+            for (int i = 0; i < 100; ++i) {
+                CPPUNIT_ASSERT(vectorDequeOf99To0Ptr->fromBack(i) == i);
+            }
         }
 
         void testInequality() {
@@ -437,67 +457,242 @@ class VectorDequeTest: public CppUnit::TestFixture {
         }
 
         void testPopAll() {
+            vectorDequePtr->popAll(destArray);
+            vectorDequePtr->add(3);
+            vectorDequePtr->popAll(destArray);
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            CPPUNIT_ASSERT(destArray[0] == 3);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->popAll(destArray);
+            CPPUNIT_ASSERT(destArray[0] == 4);
+            CPPUNIT_ASSERT(destArray[1] == 5);
+            vectorDequeOf0To99Ptr->popAll(destArray);
             
+            for (int i = 0; i < 100; ++i) {
+                CPPUNIT_ASSERT(destArray[i] == i);
+            }
         }
 
         void testPopAllLast() {
-
+            vectorDequePtr->popAllLast(destArray);
+            vectorDequePtr->add(3);
+            vectorDequePtr->popAllLast(destArray);
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            CPPUNIT_ASSERT(destArray[0] == 3);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->popAllLast(destArray);
+            CPPUNIT_ASSERT(destArray[0] == 5);
+            CPPUNIT_ASSERT(destArray[1] == 4);
+            vectorDequeOf99To0Ptr->popAllLast(destArray);
+            
+            for (int i = 0; i < 100; ++i) {
+                CPPUNIT_ASSERT(destArray[i] == i);
+            }
         }
 
         void testPopLast() {
-
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->popLast(), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(vectorDequePtr->popLast() == 3);
+            vectorDequePtr->add(5);
+            vectorDequePtr->add(6);
+            CPPUNIT_ASSERT(vectorDequePtr->popLast() == 6);
+            vectorDequePtr->addFirst(2);
+            CPPUNIT_ASSERT(vectorDequePtr->popLast() == 5);
+            
+            for (int i = 0; i < 100; ++i) {
+                CPPUNIT_ASSERT(vectorDequeOf99To0Ptr->popLast() == i);
+            }
         }
 
         void testPopSome() {
-
+            vectorDequePtr->popSome(destArray, 0);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->popSome(destArray, 1), std::length_error);
+            vectorDequePtr->add(3);
+            vectorDequePtr->popSome(destArray, 1);
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            CPPUNIT_ASSERT(destArray[0] == 3);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->add(6);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->popSome(destArray, 4), std::length_error);
+            vectorDequePtr->popSome(destArray, 0);
+            CPPUNIT_ASSERT(vectorDequePtr->size() == 3);
+            vectorDequePtr->popSome(destArray, 3);
+            CPPUNIT_ASSERT(destArray[0] == 4);
+            CPPUNIT_ASSERT(destArray[1] == 5);
+            CPPUNIT_ASSERT(destArray[2] == 6);
+            
+            vectorDequeOf0To99Ptr->popSome(destArray, 50);
+            CPPUNIT_ASSERT(vectorDequeOf0To99Ptr->size() == 50);
+            for (int i = 0; i < 50; ++i) {
+                CPPUNIT_ASSERT(destArray[i] == i);
+            }
         }
 
         void testPopSomeLast() {
-
+            vectorDequePtr->popSomeLast(destArray, 0);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->popSomeLast(destArray, 1), std::length_error);
+            vectorDequePtr->add(3);
+            vectorDequePtr->popSomeLast(destArray, 1);
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            CPPUNIT_ASSERT(destArray[0] == 3);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->add(6);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->popSomeLast(destArray, 4), std::length_error);
+            vectorDequePtr->popSomeLast(destArray, 0);
+            CPPUNIT_ASSERT(vectorDequePtr->size() == 3);
+            vectorDequePtr->popSomeLast(destArray, 3);
+            CPPUNIT_ASSERT(destArray[0] == 6);
+            CPPUNIT_ASSERT(destArray[1] == 5);
+            CPPUNIT_ASSERT(destArray[2] == 4);
+            
+            vectorDequeOf99To0Ptr->popSomeLast(destArray, 50);
+            CPPUNIT_ASSERT(vectorDequeOf99To0Ptr->size() == 50);
+            for (int i = 0; i < 50; ++i) {
+                CPPUNIT_ASSERT(destArray[i] == i);
+            }
         }
 
         void testRemoveAt() {
-
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->removeAt(0), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(vectorDequePtr->removeAt(0) == 3);
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            CPPUNIT_ASSERT(vectorDequePtr->removeAt(1) == 5);
+            CPPUNIT_ASSERT(vectorDequeOf0To99Ptr->removeAt(37) == 37);
+            int result = vectorDequeOf0To99Ptr->removeAt(37);
+            CPPUNIT_ASSERT(result == 38);
         }
 
         void testRemoveAtIterator() {
-
-        }
-
-        void testReverseAccess() {
-
+            vectorDequePtr->add(3);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            VectorDeque<int>::Iterator it = vectorDequePtr->begin();
+            CPPUNIT_ASSERT(vectorDequePtr->removeAt(it) == 3);
+            CPPUNIT_ASSERT(vectorDequePtr->removeAt(it) == 4);
+            CPPUNIT_ASSERT(vectorDequePtr->removeAt(it) == 5);
         }
 
         void testReverseCopyToArray() {
-
+            vectorDequePtr->reverseCopyToArray(emptyArray);
+            vectorDequePtr->add(5);
+            vectorDequePtr->reverseCopyToArray(destArray);
+            CPPUNIT_ASSERT(destArray[0] == 5);
+            vectorDequePtr->add(4);
+            vectorDequePtr->reverseCopyToArray(destArray);
+            CPPUNIT_ASSERT(destArray[0] == 4);
+            CPPUNIT_ASSERT(destArray[1] == 5);
+            vectorDequeOf99To0Ptr->reverseCopyToArray(destArray);
+            for (int i = 0; i < 100; ++i) {
+                CPPUNIT_ASSERT(destArray[i] == i);
+            }
         }
 
         void testReverseSliceToArray() {
+            vectorDequePtr->reverseSliceToArray(destArray, 0, 0);
+            vectorDequePtr->add(3);
+            vectorDequePtr->reverseSliceToArray(destArray, 0, 1);
+            CPPUNIT_ASSERT(destArray[0] == 3);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->add(6);
+            vectorDequePtr->reverseSliceToArray(destArray, 1, 3);
+            CPPUNIT_ASSERT(destArray[0] == 5);
+            CPPUNIT_ASSERT(destArray[1] == 4);
 
+            vectorDequeOf99To0Ptr->reverseSliceToArray(destArray, 25, 75);
+            for (int i = 0; i < 50; ++i) {
+                CPPUNIT_ASSERT(destArray[i] == i + 25);
+            }
         }
 
         void testSize() {
+            CPPUNIT_ASSERT(vectorDequePtr->size() == 0);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(vectorDequePtr->size() == 1);
+            vectorDequePtr->add(4);
+            CPPUNIT_ASSERT(vectorDequePtr->size() == 2);
 
+            CPPUNIT_ASSERT(vectorDequeOf0To99Ptr->size() == 100);
         }
 
         void testSkip() {
-
+            vectorDequePtr->skip(0);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->skip(1), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->skip(2), std::length_error);
+            vectorDequePtr->skip(1);
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->skip(1);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 5);
+            vectorDequePtr->add(6);
+            vectorDequePtr->add(7);
+            vectorDequePtr->skip(2);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 7);
         }
         
         void testSkipLast() {
-
+            vectorDequePtr->skipLast(0);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->skipLast(1), std::length_error);
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT_THROW(vectorDequePtr->skipLast(2), std::length_error);
+            vectorDequePtr->skipLast(1);
+            CPPUNIT_ASSERT(vectorDequePtr->isEmpty());
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->skipLast(1);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 4);
+            vectorDequePtr->add(6);
+            vectorDequePtr->add(7);
+            vectorDequePtr->skipLast(2);
+            CPPUNIT_ASSERT((*vectorDequePtr)[0] == 4);
         }
 
         void testSliceToArray() {
+            vectorDequePtr->sliceToArray(destArray, 0, 0);
+            vectorDequePtr->add(3);
+            vectorDequePtr->sliceToArray(destArray, 0, 1);
+            CPPUNIT_ASSERT(destArray[0] == 3);
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            vectorDequePtr->add(6);
+            vectorDequePtr->sliceToArray(destArray, 1, 3);
+            CPPUNIT_ASSERT(destArray[0] == 4);
+            CPPUNIT_ASSERT(destArray[1] == 5);
 
+            vectorDequeOf0To99Ptr->sliceToArray(destArray, 25, 75);
+            for (int i = 0; i < 50; ++i) {
+                CPPUNIT_ASSERT(destArray[i] == i + 25);
+            }
         }
 
         void testToString() {
-
+            CPPUNIT_ASSERT(((std::string) *vectorDequePtr) == "{}");
+            vectorDequePtr->add(3);
+            CPPUNIT_ASSERT(((std::string) *vectorDequePtr) == "{3}");
+            vectorDequePtr->add(4);
+            vectorDequePtr->add(5);
+            CPPUNIT_ASSERT(((std::string) *vectorDequePtr) == "{3, 4, 5}");
         }
 
         void testInternalInitialCapacity() {
+            VectorDeque<int> newVectorDeque1;
+            CPPUNIT_ASSERT(newVectorDeque1._capacity == VectorDeque<int>::DEFAULT_INITIAL_CAPACITY);
 
+            VectorDeque<int> newVectorDeque2(0);
+            CPPUNIT_ASSERT(newVectorDeque2._capacity == 0);
+
+            VectorDeque<int> newVectorDeque3(100);
+            CPPUNIT_ASSERT(newVectorDeque3._capacity == 100);
         }
 
         // Test that the contents are consistent with the internal position.

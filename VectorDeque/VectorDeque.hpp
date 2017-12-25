@@ -481,6 +481,14 @@ class VectorDeque {
         for (size_t i = 0; i < until - from; ++i) {
             _data[_internalNegativeIndexFrom(until, i)] = _data[_internalNegativeIndexFrom(until, i + 1)];
         }
+        if (from == 0) {
+            // If we're shifting up the first element, we need to update `_position`.
+            if (_position == _capacity - 1) {
+                _position = 0;
+            } else {
+                ++_position;
+            }
+        }
     }
 
     // Compute the internal index for where the next element should be written.
@@ -839,6 +847,18 @@ class VectorDeque {
     }
 
     /**
+     * Access the element at `index` starting from the last element.
+     * Runtime: `O(1)`
+     * Exception Safety: Strong
+     * @param index Index to get an element at.
+     * @return A reference to the element.
+     * @throws std::length_error If `index >= size()`.
+     */
+     DataType& fromBack(const size_t index) const {
+        return (*this)[_size - index - 1];
+    } 
+
+    /**
      * Insert `element` before `before`.
      * Runtime: Amortized `O(min(before, size() - before))`
      * Exception Safety: Strong
@@ -958,20 +978,20 @@ class VectorDeque {
      * Runtime: `O(size())`
      * @param target Array to put elements into.
      */
-        void popAll(DataType* const target) throw() {
+    void popAll(DataType* const target) throw() {
         copyToArray(target);
         clear();
-        }
+    }
 
     /**
      * Put every element into `target` from the back and then remove them from `*this`.
      * Runtime: `O(size())`
      * @param target Array to put elements into.
      */
-        void popAllLast(DataType* const target) throw() {
-            reverseCopyToArray(target);
-            clear();
-        }
+    void popAllLast(DataType* const target) throw() {
+        reverseCopyToArray(target);
+        clear();
+    }
 
     /**
      * Remove and return the last element.
@@ -1031,20 +1051,22 @@ class VectorDeque {
      * @throws std::length_error If `index >= size()`.
      */
     DataType removeAt(const size_t index) {
-    _checkIndex(index);
-    if (index == _size) {
-        --_size;
-        return;
-    }
+        _checkIndex(index);
+        const DataType result = (*this)[index];
+        if (index == _size - 1) {
+            --_size;
+        }
+        else if (index / 2 <= _size) {
+            // More efficient to shift front elements forward.
+            _shiftUp(0, index);
+            --_size;
 
-    if (index / 2 <= _size) {
-        // More efficient to shift front elements forward.
-        _shiftUp(0, index);
-
-    } else {
-        // More efficient to shift back elements backward.
-        _shiftDown(index + 1, _size);
-    }
+        } else {
+            // More efficient to shift back elements backward.
+            _shiftDown(index + 1, _size);
+            --_size;
+        }
+        return result;
     }
     
     /**
@@ -1057,8 +1079,8 @@ class VectorDeque {
      * @throws std::invalid_argument If `it` is not iterating over `*this`.
      */
     DataType removeAt(const ConstIterator& it) {
-    _checkIterator(it);
-    removeAt(it._position);
+        _checkIterator(it);
+        return removeAt(it._position);
     }
 
     /**
@@ -1085,18 +1107,6 @@ class VectorDeque {
     } 
 
     /**
-     * Access the element at `index` starting from the last element.
-     * Runtime: `O(1)`
-     * Exception Safety: Strong
-     * @param index Index to get an element at.
-     * @return A reference to the element.
-     * @throws std::length_error If `index >= size()`.
-     */
-    DataType& reverseAccess(const size_t index) const {
-        return (*this)[_size - index - 1];
-    } 
-
-    /**
      * Copy the contents of `*this` to the given array in reverse order.
      * Runtime: `O(size())`
      * @param target Array to copy to.
@@ -1119,7 +1129,7 @@ class VectorDeque {
         _checkRange(from, until);
         const size_t length = until - from;
         for (size_t i = 0; i < length; ++i) {
-            target[i] = (*this)[until - i - 1];
+            target[i] = fromBack(i + from);
         }
     }
 
