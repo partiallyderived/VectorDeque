@@ -1,0 +1,1108 @@
+\hypertarget{classVectorDeque}{\section{Vector\-Deque$<$ Data\-Type $>$ Class Template Reference}
+\label{classVectorDeque}\index{Vector\-Deque$<$ Data\-Type $>$@{Vector\-Deque$<$ Data\-Type $>$}}
+}
+
+
+{\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} satisfies the resource constraints typically expected of both Vectors and Deques.  
+
+
+
+
+{\ttfamily \#include $<$Vector\-Deque.\-hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classVectorDeque_a14c9e8124611465c5aec6687b9c18a4b}{typedef Iterator\-Base\\*
+$<$ \hyperlink{classVectorDeque}{Vector\-Deque}, Data\-Type, false $>$ \hyperlink{classVectorDeque_a14c9e8124611465c5aec6687b9c18a4b}{Iterator}}\label{classVectorDeque_a14c9e8124611465c5aec6687b9c18a4b}
+
+\begin{DoxyCompactList}\small\item\em Mutable iterator for {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}}s. \end{DoxyCompactList}\item 
+\hypertarget{classVectorDeque_a5cfe4fc61668a1213c99e052450297e6}{typedef Iterator\-Base$<$ const \\*
+\hyperlink{classVectorDeque}{Vector\-Deque}, const Data\-Type, \\*
+false $>$ \hyperlink{classVectorDeque_a5cfe4fc61668a1213c99e052450297e6}{Const\-Iterator}}\label{classVectorDeque_a5cfe4fc61668a1213c99e052450297e6}
+
+\begin{DoxyCompactList}\small\item\em Immutable iterator for {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}}s. \end{DoxyCompactList}\item 
+\hypertarget{classVectorDeque_a6c7645ed21181c82fd1837362a1e5145}{typedef Iterator\-Base\\*
+$<$ \hyperlink{classVectorDeque}{Vector\-Deque}, Data\-Type, true $>$ \hyperlink{classVectorDeque_a6c7645ed21181c82fd1837362a1e5145}{Reverse\-Iterator}}\label{classVectorDeque_a6c7645ed21181c82fd1837362a1e5145}
+
+\begin{DoxyCompactList}\small\item\em Mutable reverse iterator for {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}}s. \end{DoxyCompactList}\item 
+\hypertarget{classVectorDeque_a291aa5e53d483276367327acb93f3846}{typedef Iterator\-Base$<$ const \\*
+\hyperlink{classVectorDeque}{Vector\-Deque}, const Data\-Type, \\*
+true $>$ \hyperlink{classVectorDeque_a291aa5e53d483276367327acb93f3846}{Const\-Reverse\-Iterator}}\label{classVectorDeque_a291aa5e53d483276367327acb93f3846}
+
+\begin{DoxyCompactList}\small\item\em Immutable reverse iterator for {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}}s. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVectorDeque_a6ccd352013e04ac9b27651028481ff9c}{Vector\-Deque} ()  throw ()
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} with a default initial capacity. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a77d6b83cb5d9fb65d6ac1ddfa6833205}{Vector\-Deque} (const size\-\_\-t capacity)  throw ()
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} with the given initial capacity. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_ae86351d1ecec0183193144844518a971}{Vector\-Deque} (const \hyperlink{classVectorDeque}{Vector\-Deque} \&that)  throw ()
+\begin{DoxyCompactList}\small\item\em Non-\/temporary copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_aa05f563b1148c66067be9a796cfaed13}{Vector\-Deque} (\hyperlink{classVectorDeque}{Vector\-Deque} \&\&that)  throw ()
+\begin{DoxyCompactList}\small\item\em Temporary copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque}{Vector\-Deque} \& \hyperlink{classVectorDeque_a8be7a91c8d970e4dacce3500116b6f06}{operator=} (const \hyperlink{classVectorDeque}{Vector\-Deque} \&that)  throw ()
+\begin{DoxyCompactList}\small\item\em Non-\/temporary assignment. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque}{Vector\-Deque} \& \hyperlink{classVectorDeque_a80a42da54a15e4f0b4e9f9430e2278a2}{operator=} (\hyperlink{classVectorDeque}{Vector\-Deque} \&\&that)  throw ()
+\begin{DoxyCompactList}\small\item\em Temporary assignment. \end{DoxyCompactList}\item 
+bool \hyperlink{classVectorDeque_a0595132279942b754d035d1e2fedbacb}{operator==} (const \hyperlink{classVectorDeque}{Vector\-Deque} \&that) const   throw ()
+\begin{DoxyCompactList}\small\item\em Checks to see if {\ttfamily $\ast$this} is equal to another {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}}. \end{DoxyCompactList}\item 
+bool \hyperlink{classVectorDeque_ab14f8f936e72e47a71b6345b6e2ee5b1}{operator!=} (const \hyperlink{classVectorDeque}{Vector\-Deque} \&that) const   throw ()
+\begin{DoxyCompactList}\small\item\em Checks to see if {\ttfamily $\ast$this} is not equal to another \hyperlink{classVectorDeque}{Vector\-Deque}. \end{DoxyCompactList}\item 
+Data\-Type \& \hyperlink{classVectorDeque_a1c554dd6085326d0054c32736059654a}{operator\mbox{[}$\,$\mbox{]}} (const size\-\_\-t index) const 
+\begin{DoxyCompactList}\small\item\em Access the element at {\ttfamily index}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a77f1a6f951f10d2dbb0a2d4ab37d3df1}{operator std\-::string} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Gives a human-\/readable representation of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a6627a3c5f96e0a597ca4b497789e2dbb}{add} (const Data\-Type \&element)  throw ()
+\begin{DoxyCompactList}\small\item\em Add {\ttfamily element} to the back of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_ac600744ac03b32391ce2b3326811944f}{add\-All} (const Data\-Type $\ast$const elements, const size\-\_\-t length)  throw ()
+\begin{DoxyCompactList}\small\item\em Add an array of elements to the back of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Iterator\-Type $>$ }\\void \hyperlink{classVectorDeque_a146d4e11742a18062ea3e9e8dd75769f}{add\-All} (Iterator\-Type \hyperlink{classVectorDeque_a2f16427750643789ac9bddc8337ec702}{begin}, Iterator\-Type \hyperlink{classVectorDeque_a3fe1250d2f55a3208ac1a2c8597ca4ed}{end})  throw ()
+\begin{DoxyCompactList}\small\item\em Add a collection of elements to the back of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a97fd51c98bfeccbaf7b5fa24c3ca2f42}{add\-All\-First} (const Data\-Type $\ast$const elements, const size\-\_\-t length)  throw ()
+\begin{DoxyCompactList}\small\item\em Add an array of elements to the front of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Iterator\-Type $>$ }\\void \hyperlink{classVectorDeque_afe87b9cd1769bb101cc024f8f7883502}{add\-All\-First} (Iterator\-Type \hyperlink{classVectorDeque_a2f16427750643789ac9bddc8337ec702}{begin}, Iterator\-Type \hyperlink{classVectorDeque_a3fe1250d2f55a3208ac1a2c8597ca4ed}{end})  throw ()
+\begin{DoxyCompactList}\small\item\em Add a collection of elements to the front of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_af28118e77d946e21445f460ca951d983}{add\-First} (const Data\-Type \&element)  throw ()
+\begin{DoxyCompactList}\small\item\em Add {\ttfamily element} to the front of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a14c9e8124611465c5aec6687b9c18a4b}{Iterator} \hyperlink{classVectorDeque_a2f16427750643789ac9bddc8337ec702}{begin} ()  throw ()
+\begin{DoxyCompactList}\small\item\em Get an iterator pointing to the first element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a5cfe4fc61668a1213c99e052450297e6}{Const\-Iterator} \hyperlink{classVectorDeque_ab50b3786dae9b81ebd8938e6e70bb02e}{cbegin} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Get a constant iterator pointing to the first element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a5cfe4fc61668a1213c99e052450297e6}{Const\-Iterator} \hyperlink{classVectorDeque_a77f86389895243f392ceabe443203e32}{cend} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Get an iterator past the last element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_afac9474353f64902fccb648c537e652f}{clear} ()  throw ()
+\begin{DoxyCompactList}\small\item\em Remove all elements from {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+bool \hyperlink{classVectorDeque_ae0cbf3779a0ea9be8bbfd2409eba889f}{contains} (const Data\-Type \&element) const   throw ()
+\begin{DoxyCompactList}\small\item\em Check to see if {\ttfamily element} is contained in {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a42a1250984dcf602e225ecbe10d7cfc9}{copy\-To\-Array} (Data\-Type $\ast$const target) const   throw ()
+\begin{DoxyCompactList}\small\item\em Copy the contents of {\ttfamily $\ast$this} to {\ttfamily target}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a291aa5e53d483276367327acb93f3846}{Const\-Reverse\-Iterator} \hyperlink{classVectorDeque_a6577db57d37cc36ce00060baa2abfef6}{crbegin} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Get a constant reverse iterator pointing to the last element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a291aa5e53d483276367327acb93f3846}{Const\-Reverse\-Iterator} \hyperlink{classVectorDeque_abac13f397fa78185ae34fc14751ab720}{crend} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Get an iterator past the last element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a14c9e8124611465c5aec6687b9c18a4b}{Iterator} \hyperlink{classVectorDeque_a3fe1250d2f55a3208ac1a2c8597ca4ed}{end} ()  throw ()
+\begin{DoxyCompactList}\small\item\em Get an iterator past the last element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+ssize\-\_\-t \hyperlink{classVectorDeque_a301ac89ba3198559c65bd7ff18f4b107}{find} (const Data\-Type \&element) const   throw ()
+\begin{DoxyCompactList}\small\item\em Check to see where {\ttfamily element} is located in {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+Data\-Type \& \hyperlink{classVectorDeque_a1685429a5556997348d6cf155f499fcd}{from\-Back} (const size\-\_\-t index) const 
+\begin{DoxyCompactList}\small\item\em Access the element at {\ttfamily index} starting from the last element. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a8d49f96833f4d6664159a596c3c361be}{insert} (const Data\-Type \&element, const size\-\_\-t before)
+\begin{DoxyCompactList}\small\item\em Insert {\ttfamily element} before {\ttfamily before}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_af61c9b5aa7cec8e777974e6394ae3a9b}{insert} (const Data\-Type \&element, const \hyperlink{classVectorDeque_a5cfe4fc61668a1213c99e052450297e6}{Const\-Iterator} \&it)
+\begin{DoxyCompactList}\small\item\em Insert {\ttfamily element} before the element pointed to by {\ttfamily it}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a2fac11287907b1e659602e834e402141}{insert} (const Data\-Type \&element, const \hyperlink{classVectorDeque_a291aa5e53d483276367327acb93f3846}{Const\-Reverse\-Iterator} \&it)
+\begin{DoxyCompactList}\small\item\em Insert {\ttfamily element} after (with respect to {\ttfamily $\ast$this}) the element pointed to by the reverse iterator {\ttfamily it}. \end{DoxyCompactList}\item 
+bool \hyperlink{classVectorDeque_a2276eec2f96514a9f715f2c7baeb9f85}{is\-Empty} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Checks whether {\ttfamily $\ast$this} is empty. \end{DoxyCompactList}\item 
+Data\-Type \hyperlink{classVectorDeque_a422235687c4f419d99f6a542bdf9b0e1}{peek} () const 
+\begin{DoxyCompactList}\small\item\em Get the first element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+Data\-Type \hyperlink{classVectorDeque_ae2901d12f640144868d9c3aaee93609f}{peek\-Last} () const 
+\begin{DoxyCompactList}\small\item\em Get the last element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+Data\-Type \hyperlink{classVectorDeque_a2c64607e5255a154d4e0e781a9f4cbca}{pop} ()
+\begin{DoxyCompactList}\small\item\em Remove and return the first element. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_ab5d37b26fef424fc1c7799bded9d0fd6}{pop\-All} (Data\-Type $\ast$const target)  throw ()
+\begin{DoxyCompactList}\small\item\em Put every element into {\ttfamily target} and then remove them from {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_ac7bfa0aed49323c8de6a80f11bc5fd81}{pop\-All\-Last} (Data\-Type $\ast$const target)  throw ()
+\begin{DoxyCompactList}\small\item\em Put every element into {\ttfamily target} from the back and then remove them from {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+Data\-Type \hyperlink{classVectorDeque_a66a109e2ed17317d2b915dfb698148ab}{pop\-Last} ()
+\begin{DoxyCompactList}\small\item\em Remove and return the last element. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a7b2be5c47040434600596e408dd56d31}{pop\-Some} (Data\-Type $\ast$const target, const size\-\_\-t amount)
+\begin{DoxyCompactList}\small\item\em Remove {\ttfamily amount} elements and put them into {\ttfamily target}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_ae3767c6a3236b083c025933c6305c138}{pop\-Some\-Last} (Data\-Type $\ast$const target, const size\-\_\-t amount)
+\begin{DoxyCompactList}\small\item\em Remove {\ttfamily amount} elements from the back and put them into {\ttfamily target}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a6c7645ed21181c82fd1837362a1e5145}{Reverse\-Iterator} \hyperlink{classVectorDeque_ab5afe7cf117463ba11ee7745b92fdd58}{rbegin} ()  throw ()
+\begin{DoxyCompactList}\small\item\em Get a reverse iterator pointing to the last element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+Data\-Type \hyperlink{classVectorDeque_a7afdc8063b945a6e10d2bee8781340a6}{remove\-At} (const size\-\_\-t index)
+\begin{DoxyCompactList}\small\item\em Remove the element at {\ttfamily index}. \end{DoxyCompactList}\item 
+Data\-Type \hyperlink{classVectorDeque_a6143f275084ea8cd415304b290f5f47c}{remove\-At} (const \hyperlink{classVectorDeque_a5cfe4fc61668a1213c99e052450297e6}{Const\-Iterator} \&it)
+\begin{DoxyCompactList}\small\item\em Remove the element pointed to by {\ttfamily it}. \end{DoxyCompactList}\item 
+Data\-Type \hyperlink{classVectorDeque_aeb1308e947cb511882ec495fe0dc45ad}{remove\-At} (const \hyperlink{classVectorDeque_a291aa5e53d483276367327acb93f3846}{Const\-Reverse\-Iterator} \&it)
+\begin{DoxyCompactList}\small\item\em Remove the element pointed to by {\ttfamily it}. \end{DoxyCompactList}\item 
+\hyperlink{classVectorDeque_a14c9e8124611465c5aec6687b9c18a4b}{Iterator} \hyperlink{classVectorDeque_a07d81f4679c64e02d184da597ad5aca6}{rend} ()  throw ()
+\begin{DoxyCompactList}\small\item\em Get an iterator past the last element of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_ab006987576c67f39bc5af16cb0b9a5a2}{reverse\-Copy\-To\-Array} (Data\-Type $\ast$const target) const   throw ()
+\begin{DoxyCompactList}\small\item\em Copy the contents of {\ttfamily $\ast$this} to the given array in reverse order. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_ab43900b93057928ddaea200bc583a3d5}{reverse\-Slice\-To\-Array} (Data\-Type $\ast$const target, const size\-\_\-t from, const size\-\_\-t until) const 
+\begin{DoxyCompactList}\small\item\em Copy a slice of contents of {\ttfamily $\ast$this} to {\ttfamily target} in reverse order. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size} () const   throw ()
+\begin{DoxyCompactList}\small\item\em Returns the number of elements in {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_ad4e49c7ef2d032ef574af95129a7f959}{skip} (const size\-\_\-t amount=1)
+\begin{DoxyCompactList}\small\item\em Removes {\ttfamily amount} elements from the front of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a09dc2bf1fcac2a1847de7294b45736e8}{skip\-Last} (const size\-\_\-t amount=1)
+\begin{DoxyCompactList}\small\item\em Removes {\ttfamily amount} elements from the back of {\ttfamily $\ast$this}. \end{DoxyCompactList}\item 
+void \hyperlink{classVectorDeque_a410696c868fd1b4adbe08875c65cf98d}{slice\-To\-Array} (Data\-Type $\ast$const target, const size\-\_\-t from, const size\-\_\-t until) const 
+\begin{DoxyCompactList}\small\item\em Copy a slice of elements of {\ttfamily $\ast$this} to {\ttfamily target}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classVectorDeque_a932a7ea50f88f46a0d4038370685414c}{static const size\-\_\-t \hyperlink{classVectorDeque_a932a7ea50f88f46a0d4038370685414c}{D\-E\-F\-A\-U\-L\-T\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y} = 11}\label{classVectorDeque_a932a7ea50f88f46a0d4038370685414c}
+
+\begin{DoxyCompactList}\small\item\em The capacity to initialize a {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} to by default. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classVectorDeque_a6999d3f9756fe7f4567fe88f141d471b}{class {\bfseries Vector\-Deque\-Test}}\label{classVectorDeque_a6999d3f9756fe7f4567fe88f141d471b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Data\-Type$>$class Vector\-Deque$<$ Data\-Type $>$}
+
+{\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} satisfies the resource constraints typically expected of both Vectors and Deques. 
+
+In particular, it has
+
+
+\begin{DoxyItemize}
+\item {\ttfamily O(1)} Member access
+\item {\ttfamily O(1)} Append
+\item {\ttfamily O(1)} Prepend
+\end{DoxyItemize}
+
+Additionally, {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} will only automatically resize when it is at full capacity. Iterators for {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} maintain an index to the element they are currently pointing to, and modifications to the {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} will not change that index. For example, suppose an element is added to the front of the {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} while an iterator is pointing to the third element. That iterator will now be pointing to what was previously the second element, since that element is now the third element and the iterator's index did not change. 
+\begin{DoxyParams}{Parameters}
+{\em Data\-Type} & The type of the data to contain. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classVectorDeque_a6ccd352013e04ac9b27651028481ff9c}{\index{Vector\-Deque@{Vector\-Deque}!Vector\-Deque@{Vector\-Deque}}
+\index{Vector\-Deque@{Vector\-Deque}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{Vector\-Deque}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Vector\-Deque}$<$ Data\-Type $>$\-::{\bf Vector\-Deque} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a6ccd352013e04ac9b27651028481ff9c}
+
+
+Constructs a {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} with a default initial capacity. 
+
+Runtime\-: {\ttfamily O(1)} \hypertarget{classVectorDeque_a77d6b83cb5d9fb65d6ac1ddfa6833205}{\index{Vector\-Deque@{Vector\-Deque}!Vector\-Deque@{Vector\-Deque}}
+\index{Vector\-Deque@{Vector\-Deque}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{Vector\-Deque}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Vector\-Deque}$<$ Data\-Type $>$\-::{\bf Vector\-Deque} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{capacity}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{classVectorDeque_a77d6b83cb5d9fb65d6ac1ddfa6833205}
+
+
+Constructs a {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} with the given initial capacity. 
+
+Runtime\-: {\ttfamily O(1)} 
+\begin{DoxyParams}{Parameters}
+{\em capacity} & Initial capacity to construct with. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_ae86351d1ecec0183193144844518a971}{\index{Vector\-Deque@{Vector\-Deque}!Vector\-Deque@{Vector\-Deque}}
+\index{Vector\-Deque@{Vector\-Deque}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{Vector\-Deque}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Vector\-Deque}$<$ Data\-Type $>$\-::{\bf Vector\-Deque} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\-Deque}$<$ Data\-Type $>$ \&}]{that}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ae86351d1ecec0183193144844518a971}
+
+
+Non-\/temporary copy constructor. 
+
+Differs from the temporary copy constructor in that the underlying array is copied instead of moved. Runtime\-: {\ttfamily O(that.\-size())} 
+\begin{DoxyParams}{Parameters}
+{\em that} & {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} to construct from. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_aa05f563b1148c66067be9a796cfaed13}{\index{Vector\-Deque@{Vector\-Deque}!Vector\-Deque@{Vector\-Deque}}
+\index{Vector\-Deque@{Vector\-Deque}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{Vector\-Deque}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Vector\-Deque}$<$ Data\-Type $>$\-::{\bf Vector\-Deque} (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector\-Deque}$<$ Data\-Type $>$ \&\&}]{that}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_aa05f563b1148c66067be9a796cfaed13}
+
+
+Temporary copy constructor. 
+
+Differs from the non-\/temporary copy constructor in the the underlying array is moved instead of copied. Runtime\-: {\ttfamily O(1)} 
+\begin{DoxyParams}{Parameters}
+{\em that} & Temporary {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} to construct from. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classVectorDeque_a6627a3c5f96e0a597ca4b497789e2dbb}{\index{Vector\-Deque@{Vector\-Deque}!add@{add}}
+\index{add@{add}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::add (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type \&}]{element}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a6627a3c5f96e0a597ca4b497789e2dbb}
+
+
+Add {\ttfamily element} to the back of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} 
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to add. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_ac600744ac03b32391ce2b3326811944f}{\index{Vector\-Deque@{Vector\-Deque}!add\-All@{add\-All}}
+\index{add\-All@{add\-All}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{add\-All}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::add\-All (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type $\ast$const}]{elements, }
+\item[{const size\-\_\-t}]{length}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ac600744ac03b32391ce2b3326811944f}
+
+
+Add an array of elements to the back of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(length)} 
+\begin{DoxyParams}{Parameters}
+{\em elements} & Elements to add. \\
+\hline
+{\em length} & Amount of elements to add. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_a146d4e11742a18062ea3e9e8dd75769f}{\index{Vector\-Deque@{Vector\-Deque}!add\-All@{add\-All}}
+\index{add\-All@{add\-All}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{add\-All}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ template$<$class Iterator\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::add\-All (
+\begin{DoxyParamCaption}
+\item[{Iterator\-Type}]{begin, }
+\item[{Iterator\-Type}]{end}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a146d4e11742a18062ea3e9e8dd75769f}
+
+
+Add a collection of elements to the back of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(size of given collection)} 
+\begin{DoxyParams}{Parameters}
+{\em begin} & Iterator to the first element to add. \\
+\hline
+{\em end} & Iterator past the last element to add. \\
+\hline
+{\em Iterator\-Type} & The type of the iterator. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_a97fd51c98bfeccbaf7b5fa24c3ca2f42}{\index{Vector\-Deque@{Vector\-Deque}!add\-All\-First@{add\-All\-First}}
+\index{add\-All\-First@{add\-All\-First}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{add\-All\-First}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::add\-All\-First (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type $\ast$const}]{elements, }
+\item[{const size\-\_\-t}]{length}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a97fd51c98bfeccbaf7b5fa24c3ca2f42}
+
+
+Add an array of elements to the front of {\ttfamily $\ast$this}. 
+
+This method works as though {\ttfamily add\-First} was sequentially called on {\ttfamily elements}. Thus, the last element added is the first element in {\ttfamily $\ast$this} after {\ttfamily add\-All\-First} terminates. Runtime\-: {\ttfamily O(length)} 
+\begin{DoxyParams}{Parameters}
+{\em elements} & Elements to add. \\
+\hline
+{\em length} & Amount of elements to add. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_afe87b9cd1769bb101cc024f8f7883502}{\index{Vector\-Deque@{Vector\-Deque}!add\-All\-First@{add\-All\-First}}
+\index{add\-All\-First@{add\-All\-First}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{add\-All\-First}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ template$<$class Iterator\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::add\-All\-First (
+\begin{DoxyParamCaption}
+\item[{Iterator\-Type}]{begin, }
+\item[{Iterator\-Type}]{end}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_afe87b9cd1769bb101cc024f8f7883502}
+
+
+Add a collection of elements to the front of {\ttfamily $\ast$this}. 
+
+This method works as though {\ttfamily add\-First} was sequentially called on for the given iterator. Thus, the last element added is the first element in {\ttfamily $\ast$this} after {\ttfamily add\-All\-First} terminates. Runtime\-: {\ttfamily O(size of given collection)} 
+\begin{DoxyParams}{Parameters}
+{\em begin} & Iterator to the first element to add. \\
+\hline
+{\em end} & Iterator past the last element to add. \\
+\hline
+{\em Iterator\-Type} & The type of the iterator. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_af28118e77d946e21445f460ca951d983}{\index{Vector\-Deque@{Vector\-Deque}!add\-First@{add\-First}}
+\index{add\-First@{add\-First}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{add\-First}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::add\-First (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type \&}]{element}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_af28118e77d946e21445f460ca951d983}
+
+
+Add {\ttfamily element} to the front of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} 
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to add. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_a2f16427750643789ac9bddc8337ec702}{\index{Vector\-Deque@{Vector\-Deque}!begin@{begin}}
+\index{begin@{begin}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a2f16427750643789ac9bddc8337ec702}
+
+
+Get an iterator pointing to the first element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Iterator pointing to the first element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_ab50b3786dae9b81ebd8938e6e70bb02e}{\index{Vector\-Deque@{Vector\-Deque}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{cbegin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Const\-Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::cbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ab50b3786dae9b81ebd8938e6e70bb02e}
+
+
+Get a constant iterator pointing to the first element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Constant iterator pointing to the first element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a77f86389895243f392ceabe443203e32}{\index{Vector\-Deque@{Vector\-Deque}!cend@{cend}}
+\index{cend@{cend}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{cend}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Const\-Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::cend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a77f86389895243f392ceabe443203e32}
+
+
+Get an iterator past the last element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Iterator past the last element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_afac9474353f64902fccb648c537e652f}{\index{Vector\-Deque@{Vector\-Deque}!clear@{clear}}
+\index{clear@{clear}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_afac9474353f64902fccb648c537e652f}
+
+
+Remove all elements from {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)}. \hypertarget{classVectorDeque_ae0cbf3779a0ea9be8bbfd2409eba889f}{\index{Vector\-Deque@{Vector\-Deque}!contains@{contains}}
+\index{contains@{contains}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ bool {\bf Vector\-Deque}$<$ Data\-Type $>$\-::contains (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type \&}]{element}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ae0cbf3779a0ea9be8bbfd2409eba889f}
+
+
+Check to see if {\ttfamily element} is contained in {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to check for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} If {\ttfamily ($\ast$this)\mbox{[}i\mbox{]} == element} for some {\ttfamily 0 $<$= i $<$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}} and {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a42a1250984dcf602e225ecbe10d7cfc9}{\index{Vector\-Deque@{Vector\-Deque}!copy\-To\-Array@{copy\-To\-Array}}
+\index{copy\-To\-Array@{copy\-To\-Array}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{copy\-To\-Array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::copy\-To\-Array (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a42a1250984dcf602e225ecbe10d7cfc9}
+
+
+Copy the contents of {\ttfamily $\ast$this} to {\ttfamily target}. 
+
+Runtime\-: {\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to copy to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_a6577db57d37cc36ce00060baa2abfef6}{\index{Vector\-Deque@{Vector\-Deque}!crbegin@{crbegin}}
+\index{crbegin@{crbegin}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{crbegin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Const\-Reverse\-Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::crbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a6577db57d37cc36ce00060baa2abfef6}
+
+
+Get a constant reverse iterator pointing to the last element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Constant reverse iterator pointing to the last element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_abac13f397fa78185ae34fc14751ab720}{\index{Vector\-Deque@{Vector\-Deque}!crend@{crend}}
+\index{crend@{crend}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{crend}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Const\-Reverse\-Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::crend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_abac13f397fa78185ae34fc14751ab720}
+
+
+Get an iterator past the last element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Iterator past the last element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a3fe1250d2f55a3208ac1a2c8597ca4ed}{\index{Vector\-Deque@{Vector\-Deque}!end@{end}}
+\index{end@{end}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a3fe1250d2f55a3208ac1a2c8597ca4ed}
+
+
+Get an iterator past the last element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Iterator past the last element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a301ac89ba3198559c65bd7ff18f4b107}{\index{Vector\-Deque@{Vector\-Deque}!find@{find}}
+\index{find@{find}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ ssize\-\_\-t {\bf Vector\-Deque}$<$ Data\-Type $>$\-::find (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type \&}]{element}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a301ac89ba3198559c65bd7ff18f4b107}
+
+
+Check to see where {\ttfamily element} is located in {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to check for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The first {\ttfamily i} such that {\ttfamily (}$\ast$this{\ttfamily )\mbox{[}i\mbox{]} == element} or {\ttfamily -\/1} if no such element exists. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a1685429a5556997348d6cf155f499fcd}{\index{Vector\-Deque@{Vector\-Deque}!from\-Back@{from\-Back}}
+\index{from\-Back@{from\-Back}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{from\-Back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type\& {\bf Vector\-Deque}$<$ Data\-Type $>$\-::from\-Back (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a1685429a5556997348d6cf155f499fcd}
+
+
+Access the element at {\ttfamily index} starting from the last element. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to get an element at. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily index $>$= \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a8d49f96833f4d6664159a596c3c361be}{\index{Vector\-Deque@{Vector\-Deque}!insert@{insert}}
+\index{insert@{insert}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type \&}]{element, }
+\item[{const size\-\_\-t}]{before}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a8d49f96833f4d6664159a596c3c361be}
+
+
+Insert {\ttfamily element} before {\ttfamily before}. 
+
+Runtime\-: Amortized {\ttfamily O(min(before, \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()} -\/ before))} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em element} & Element to insert. \\
+\hline
+{\em before} & Index of the element to insert before. The inserted element's index will be {\ttfamily before}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily before $>$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_af61c9b5aa7cec8e777974e6394ae3a9b}{\index{Vector\-Deque@{Vector\-Deque}!insert@{insert}}
+\index{insert@{insert}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type \&}]{element, }
+\item[{const {\bf Const\-Iterator} \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_af61c9b5aa7cec8e777974e6394ae3a9b}
+
+
+Insert {\ttfamily element} before the element pointed to by {\ttfamily it}. 
+
+If the call is successful, the iterator will be pointing to the new element. Runtime\-: {\ttfamily O(size())} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em it} & Iterator whose pointed-\/to element will be after the inserted element. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily it} points to an out-\/of-\/bounds element. \\
+\hline
+{\em std\-::invalid\-\_\-argument} & If {\ttfamily it} is not iterating over {\ttfamily $\ast$this}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a2fac11287907b1e659602e834e402141}{\index{Vector\-Deque@{Vector\-Deque}!insert@{insert}}
+\index{insert@{insert}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{const Data\-Type \&}]{element, }
+\item[{const {\bf Const\-Reverse\-Iterator} \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a2fac11287907b1e659602e834e402141}
+
+
+Insert {\ttfamily element} after (with respect to {\ttfamily $\ast$this}) the element pointed to by the reverse iterator {\ttfamily it}. 
+
+If the call is successful, the iterator will be pointing to the new element. Runtime\-: {\ttfamily O(size())} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em it} & Iterator whose pointed-\/to element will be after the inserted element. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily it} points to an out-\/of-\/bounds element. \\
+\hline
+{\em std\-::invalid\-\_\-argument} & If {\ttfamily it} is not iterating over {\ttfamily $\ast$this}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a2276eec2f96514a9f715f2c7baeb9f85}{\index{Vector\-Deque@{Vector\-Deque}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ bool {\bf Vector\-Deque}$<$ Data\-Type $>$\-::is\-Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a2276eec2f96514a9f715f2c7baeb9f85}
+
+
+Checks whether {\ttfamily $\ast$this} is empty. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+{\ttfamily true} If {\ttfamily \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()} == 0}, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a77f1a6f951f10d2dbb0a2d4ab37d3df1}{\index{Vector\-Deque@{Vector\-Deque}!operator std\-::string@{operator std\-::string}}
+\index{operator std\-::string@{operator std\-::string}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{operator std\-::string}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Vector\-Deque}$<$ Data\-Type $>$\-::operator std\-::string (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a77f1a6f951f10d2dbb0a2d4ab37d3df1}
+
+
+Gives a human-\/readable representation of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(size())} \begin{DoxyReturn}{Returns}
+Each element of {\ttfamily $\ast$this}, comma-\/separated and enclosed in curly braces. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_ab14f8f936e72e47a71b6345b6e2ee5b1}{\index{Vector\-Deque@{Vector\-Deque}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ bool {\bf Vector\-Deque}$<$ Data\-Type $>$\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\-Deque}$<$ Data\-Type $>$ \&}]{that}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ab14f8f936e72e47a71b6345b6e2ee5b1}
+
+
+Checks to see if {\ttfamily $\ast$this} is not equal to another \hyperlink{classVectorDeque}{Vector\-Deque}. 
+
+Runtime\-: {\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em that} & Other {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} to check inequality for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} If {\ttfamily ($\ast$this)\mbox{[}i\mbox{]} != that\mbox{[}i\mbox{]}} for some {\ttfamily 0 $<$= i $<$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}} or {\ttfamily this-\/$>$\hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()} != that.\-size()}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a8be7a91c8d970e4dacce3500116b6f06}{\index{Vector\-Deque@{Vector\-Deque}!operator=@{operator=}}
+\index{operator=@{operator=}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Vector\-Deque}\& {\bf Vector\-Deque}$<$ Data\-Type $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\-Deque}$<$ Data\-Type $>$ \&}]{that}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a8be7a91c8d970e4dacce3500116b6f06}
+
+
+Non-\/temporary assignment. 
+
+Differs from temporary assignment in that the underlying array is copied instead of moved. Runtime\-: {\ttfamily O(that.\-size())} 
+\begin{DoxyParams}{Parameters}
+{\em that} & {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a80a42da54a15e4f0b4e9f9430e2278a2}{\index{Vector\-Deque@{Vector\-Deque}!operator=@{operator=}}
+\index{operator=@{operator=}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Vector\-Deque}\& {\bf Vector\-Deque}$<$ Data\-Type $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector\-Deque}$<$ Data\-Type $>$ \&\&}]{that}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a80a42da54a15e4f0b4e9f9430e2278a2}
+
+
+Temporary assignment. 
+
+Differs from the non-\/temporary assignment in the the underlying array is moved instead of copied. Runtime\-: {\ttfamily O(1)} 
+\begin{DoxyParams}{Parameters}
+{\em that} & Temporary {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} to assign from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a0595132279942b754d035d1e2fedbacb}{\index{Vector\-Deque@{Vector\-Deque}!operator==@{operator==}}
+\index{operator==@{operator==}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ bool {\bf Vector\-Deque}$<$ Data\-Type $>$\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\-Deque}$<$ Data\-Type $>$ \&}]{that}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a0595132279942b754d035d1e2fedbacb}
+
+
+Checks to see if {\ttfamily $\ast$this} is equal to another {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}}. 
+
+Runtime\-:{\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em that} & Other {\ttfamily \hyperlink{classVectorDeque}{Vector\-Deque}} to check equality for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If {\ttfamily ($\ast$this)\mbox{[}i\mbox{]} == that\mbox{[}i\mbox{]}} for every {\ttfamily 0 $<$= i $<$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}} and {\ttfamily this-\/$>$\hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()} == that.\-size()}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a1c554dd6085326d0054c32736059654a}{\index{Vector\-Deque@{Vector\-Deque}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type\& {\bf Vector\-Deque}$<$ Data\-Type $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{index}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a1c554dd6085326d0054c32736059654a}
+
+
+Access the element at {\ttfamily index}. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to get an element at. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily index $>$= \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a422235687c4f419d99f6a542bdf9b0e1}{\index{Vector\-Deque@{Vector\-Deque}!peek@{peek}}
+\index{peek@{peek}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{peek}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type {\bf Vector\-Deque}$<$ Data\-Type $>$\-::peek (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a422235687c4f419d99f6a542bdf9b0e1}
+
+
+Get the first element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong \begin{DoxyReturn}{Returns}
+The first element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily \hyperlink{classVectorDeque_a2276eec2f96514a9f715f2c7baeb9f85}{is\-Empty()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_ae2901d12f640144868d9c3aaee93609f}{\index{Vector\-Deque@{Vector\-Deque}!peek\-Last@{peek\-Last}}
+\index{peek\-Last@{peek\-Last}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{peek\-Last}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type {\bf Vector\-Deque}$<$ Data\-Type $>$\-::peek\-Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ae2901d12f640144868d9c3aaee93609f}
+
+
+Get the last element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong \begin{DoxyReturn}{Returns}
+The last element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily \hyperlink{classVectorDeque_a2276eec2f96514a9f715f2c7baeb9f85}{is\-Empty()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a2c64607e5255a154d4e0e781a9f4cbca}{\index{Vector\-Deque@{Vector\-Deque}!pop@{pop}}
+\index{pop@{pop}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type {\bf Vector\-Deque}$<$ Data\-Type $>$\-::pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a2c64607e5255a154d4e0e781a9f4cbca}
+
+
+Remove and return the first element. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong \begin{DoxyReturn}{Returns}
+The first element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily \hyperlink{classVectorDeque_a2276eec2f96514a9f715f2c7baeb9f85}{is\-Empty()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_ab5d37b26fef424fc1c7799bded9d0fd6}{\index{Vector\-Deque@{Vector\-Deque}!pop\-All@{pop\-All}}
+\index{pop\-All@{pop\-All}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{pop\-All}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::pop\-All (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ab5d37b26fef424fc1c7799bded9d0fd6}
+
+
+Put every element into {\ttfamily target} and then remove them from {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to put elements into. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_ac7bfa0aed49323c8de6a80f11bc5fd81}{\index{Vector\-Deque@{Vector\-Deque}!pop\-All\-Last@{pop\-All\-Last}}
+\index{pop\-All\-Last@{pop\-All\-Last}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{pop\-All\-Last}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::pop\-All\-Last (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ac7bfa0aed49323c8de6a80f11bc5fd81}
+
+
+Put every element into {\ttfamily target} from the back and then remove them from {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to put elements into. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_a66a109e2ed17317d2b915dfb698148ab}{\index{Vector\-Deque@{Vector\-Deque}!pop\-Last@{pop\-Last}}
+\index{pop\-Last@{pop\-Last}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{pop\-Last}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type {\bf Vector\-Deque}$<$ Data\-Type $>$\-::pop\-Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a66a109e2ed17317d2b915dfb698148ab}
+
+
+Remove and return the last element. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong \begin{DoxyReturn}{Returns}
+The last element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If \hyperlink{classVectorDeque_a2276eec2f96514a9f715f2c7baeb9f85}{is\-Empty()}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a7b2be5c47040434600596e408dd56d31}{\index{Vector\-Deque@{Vector\-Deque}!pop\-Some@{pop\-Some}}
+\index{pop\-Some@{pop\-Some}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{pop\-Some}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::pop\-Some (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target, }
+\item[{const size\-\_\-t}]{amount}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a7b2be5c47040434600596e408dd56d31}
+
+
+Remove {\ttfamily amount} elements and put them into {\ttfamily target}. 
+
+Runtime\-: {\ttfamily O(amount)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to put removed elements into. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()} $<$ amount}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_ae3767c6a3236b083c025933c6305c138}{\index{Vector\-Deque@{Vector\-Deque}!pop\-Some\-Last@{pop\-Some\-Last}}
+\index{pop\-Some\-Last@{pop\-Some\-Last}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{pop\-Some\-Last}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::pop\-Some\-Last (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target, }
+\item[{const size\-\_\-t}]{amount}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ae3767c6a3236b083c025933c6305c138}
+
+
+Remove {\ttfamily amount} elements from the back and put them into {\ttfamily target}. 
+
+This method works as if {\ttfamily amount} invocations of {\ttfamily pop\-Last} were sequentially called on {\ttfamily $\ast$this}. Thus, the last element popped will be the last element in {\ttfamily target}. Runtime\-: {\ttfamily O(amount)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to put removed elements into. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()} $<$ amount}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_ab5afe7cf117463ba11ee7745b92fdd58}{\index{Vector\-Deque@{Vector\-Deque}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{rbegin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Reverse\-Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::rbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ab5afe7cf117463ba11ee7745b92fdd58}
+
+
+Get a reverse iterator pointing to the last element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Reverse iterator pointing to the first element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_a7afdc8063b945a6e10d2bee8781340a6}{\index{Vector\-Deque@{Vector\-Deque}!remove\-At@{remove\-At}}
+\index{remove\-At@{remove\-At}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{remove\-At}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type {\bf Vector\-Deque}$<$ Data\-Type $>$\-::remove\-At (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a7afdc8063b945a6e10d2bee8781340a6}
+
+
+Remove the element at {\ttfamily index}. 
+
+Runtime\-: {\ttfamily O(size())} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to remove the element at. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The removed element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily index $>$= \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a6143f275084ea8cd415304b290f5f47c}{\index{Vector\-Deque@{Vector\-Deque}!remove\-At@{remove\-At}}
+\index{remove\-At@{remove\-At}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{remove\-At}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type {\bf Vector\-Deque}$<$ Data\-Type $>$\-::remove\-At (
+\begin{DoxyParamCaption}
+\item[{const {\bf Const\-Iterator} \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a6143f275084ea8cd415304b290f5f47c}
+
+
+Remove the element pointed to by {\ttfamily it}. 
+
+Runtime\-: {\ttfamily O(size())} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em it} & Iterator to remove the pointed-\/to element for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The removed element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily it} points to an out-\/of-\/bounds element. \\
+\hline
+{\em std\-::invalid\-\_\-argument} & If {\ttfamily it} is not iterating over {\ttfamily $\ast$this}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_aeb1308e947cb511882ec495fe0dc45ad}{\index{Vector\-Deque@{Vector\-Deque}!remove\-At@{remove\-At}}
+\index{remove\-At@{remove\-At}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{remove\-At}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ Data\-Type {\bf Vector\-Deque}$<$ Data\-Type $>$\-::remove\-At (
+\begin{DoxyParamCaption}
+\item[{const {\bf Const\-Reverse\-Iterator} \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_aeb1308e947cb511882ec495fe0dc45ad}
+
+
+Remove the element pointed to by {\ttfamily it}. 
+
+Runtime\-: {\ttfamily O(size())} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em it} & Iterator to remove the pointed-\/to element for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The removed element. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily it} points to an out-\/of-\/bounds element. \\
+\hline
+{\em std\-::invalid\-\_\-argument} & If {\ttfamily it} is not iterating over {\ttfamily $\ast$this}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a07d81f4679c64e02d184da597ad5aca6}{\index{Vector\-Deque@{Vector\-Deque}!rend@{rend}}
+\index{rend@{rend}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{rend}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ {\bf Iterator} {\bf Vector\-Deque}$<$ Data\-Type $>$\-::rend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a07d81f4679c64e02d184da597ad5aca6}
+
+
+Get an iterator past the last element of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+Iterator past the last element of {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_ab006987576c67f39bc5af16cb0b9a5a2}{\index{Vector\-Deque@{Vector\-Deque}!reverse\-Copy\-To\-Array@{reverse\-Copy\-To\-Array}}
+\index{reverse\-Copy\-To\-Array@{reverse\-Copy\-To\-Array}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{reverse\-Copy\-To\-Array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::reverse\-Copy\-To\-Array (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ab006987576c67f39bc5af16cb0b9a5a2}
+
+
+Copy the contents of {\ttfamily $\ast$this} to the given array in reverse order. 
+
+Runtime\-: {\ttfamily O(size())} 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to copy to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classVectorDeque_ab43900b93057928ddaea200bc583a3d5}{\index{Vector\-Deque@{Vector\-Deque}!reverse\-Slice\-To\-Array@{reverse\-Slice\-To\-Array}}
+\index{reverse\-Slice\-To\-Array@{reverse\-Slice\-To\-Array}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{reverse\-Slice\-To\-Array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::reverse\-Slice\-To\-Array (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target, }
+\item[{const size\-\_\-t}]{from, }
+\item[{const size\-\_\-t}]{until}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ab43900b93057928ddaea200bc583a3d5}
+
+
+Copy a slice of contents of {\ttfamily $\ast$this} to {\ttfamily target} in reverse order. 
+
+Runtime\-: {\ttfamily O(until -\/ from)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to copy to. \\
+\hline
+{\em from} & Index of {\ttfamily $\ast$this} to start copying. \\
+\hline
+{\em until} & Index of {\ttfamily $\ast$this} to stop copying (exclusive). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily until $>$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}}. \\
+\hline
+{\em std\-::invalid\-\_\-argument} & If {\ttfamily from $>$ until}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{\index{Vector\-Deque@{Vector\-Deque}!size@{size}}
+\index{size@{size}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ size\-\_\-t {\bf Vector\-Deque}$<$ Data\-Type $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}
+
+
+Returns the number of elements in {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} \begin{DoxyReturn}{Returns}
+The number of elements in {\ttfamily $\ast$this}. 
+\end{DoxyReturn}
+\hypertarget{classVectorDeque_ad4e49c7ef2d032ef574af95129a7f959}{\index{Vector\-Deque@{Vector\-Deque}!skip@{skip}}
+\index{skip@{skip}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{skip}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::skip (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{amount = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_ad4e49c7ef2d032ef574af95129a7f959}
+
+
+Removes {\ttfamily amount} elements from the front of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em amount} & Amount of elements to remove. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily amount $>$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}}. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a09dc2bf1fcac2a1847de7294b45736e8}{\index{Vector\-Deque@{Vector\-Deque}!skip\-Last@{skip\-Last}}
+\index{skip\-Last@{skip\-Last}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{skip\-Last}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::skip\-Last (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{amount = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a09dc2bf1fcac2a1847de7294b45736e8}
+
+
+Removes {\ttfamily amount} elements from the back of {\ttfamily $\ast$this}. 
+
+Runtime\-: {\ttfamily O(1)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em amount} & Amount of elements to remove. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily amount $>$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}} \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classVectorDeque_a410696c868fd1b4adbe08875c65cf98d}{\index{Vector\-Deque@{Vector\-Deque}!slice\-To\-Array@{slice\-To\-Array}}
+\index{slice\-To\-Array@{slice\-To\-Array}!VectorDeque@{Vector\-Deque}}
+\subsubsection[{slice\-To\-Array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Data\-Type $>$ void {\bf Vector\-Deque}$<$ Data\-Type $>$\-::slice\-To\-Array (
+\begin{DoxyParamCaption}
+\item[{Data\-Type $\ast$const}]{target, }
+\item[{const size\-\_\-t}]{from, }
+\item[{const size\-\_\-t}]{until}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classVectorDeque_a410696c868fd1b4adbe08875c65cf98d}
+
+
+Copy a slice of elements of {\ttfamily $\ast$this} to {\ttfamily target}. 
+
+Runtime\-: {\ttfamily O(until -\/ from)} Exception Safety\-: Strong 
+\begin{DoxyParams}{Parameters}
+{\em target} & Array to copy to. \\
+\hline
+{\em from} & Index of {\ttfamily $\ast$this} to start copying. \\
+\hline
+{\em until} & Index of {\ttfamily $\ast$this} to stop copying (exclusive). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\-::length\-\_\-error} & If {\ttfamily until $>$ \hyperlink{classVectorDeque_a4828ab569807385baf1fcf952dd0ef13}{size()}} or {\ttfamily from $>$ until}. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/main/include/Vector\-Deque.\-hpp\end{DoxyCompactItemize}
