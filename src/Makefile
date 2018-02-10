@@ -18,3 +18,9 @@ $(OBJ_DIR)/%.o: $(TEST_SRC_DIR)/%.cpp $(TEST_INC_DIRS)/%.hpp
 clean:
 	rm -rf $(OBJ_DIR)
 	rm -f test_exe
+
+.PHONY: doc
+
+doc:
+	doxygen dconfig
+	git add ../docs
