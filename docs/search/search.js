@@ -7,10 +7,20 @@
 
 var indexSectionsWithContent =
 {
+  0: "abcdefioprsv",
+  1: "v",
+  2: "abcefioprsv",
+  3: "d",
+  4: "cir"
 };
 
 var indexSectionNames =
 {
+  0: "all",
+  1: "classes",
+  2: "functions",
+  3: "variables",
+  4: "typedefs"
 };
 
 function convertToId(search)
