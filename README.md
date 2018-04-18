@@ -1,3 +1,3 @@
 # Babbo
 
-VectorDeque project
+Array-based deque implementation in C++
